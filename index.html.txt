@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Counter – Free Online Tool for Writers & Bloggers</title>
+<meta name="description" content="Free Word Counter tool to count words, characters, and sentences instantly. Perfect for writers, students, and bloggers.">
+
+<style>
+/* Reset */
+* {margin:0; padding:0; box-sizing:border-box;}
+
+/* Body */
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+    color:#333;
+}
+
+/* Header */
+header{
+    background:#0073ff;
+    color:white;
+    padding:15px 30px;
+}
+header h1{
+    display:inline-block;
+}
+nav{
+    display:inline-block;
+    float:right;
+}
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:bold;
+}
+nav a:hover{
+    text-decoration:underline;
+}
+
+/* Container */
+.container{
+    background:white;
+    padding:30px;
+    max-width:900px;
+    margin:30px auto;
+    border-radius:10px;
+    box-shadow:0 0 15px rgba(0,0,0,0.1);
+}
+
+/* Textarea */
+textarea{
+    width:100%;
+    height:200px;
+    padding:10px;
+    font-size:16px;
+    margin-top:20px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+
+/* Button */
+button{
+    padding:10px 20px;
+    margin-top:10px;
+    background:#0073ff;
+    color:white;
+    border:none;
+    cursor:pointer;
+    border-radius:5px;
+}
+button:hover{
+    background:#005bd1;
+}
+
+/* Result */
+.result{
+    margin-top:20px;
+    font-size:18px;
+}
+
+/* Gallery */
+.gallery{
+    display:flex;
+    flex-wrap:wrap;
+    margin-top:30px;
+    justify-content:space-between;
+}
+.gallery img{
+    width:48%;
+    margin-bottom:10px;
+    border-radius:5px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer{
+    background:#333;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
+footer p{
+    margin-bottom:10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Header -->
+<header>
+<h1>Word Counter</h1>
+<nav>
+<a href="#tool">Tool</a>
+<a href="#features">Features</a>
+<a href="#gallery">Gallery</a>
+<a href="#about">About</a>
+</nav>
+</header>
+
+<!-- Container -->
+<div class="container" id="tool">
+<h2>Free Word Counter Tool</h2>
+<p>Instantly count words, characters, and sentences. Perfect for writers, students, and bloggers!</p>
+
+<textarea id="text" placeholder="Type or paste your text here..." oninput="countText()"></textarea>
+
+<div class="result">
+<p>Words: <span id="words">0</span></p>
+<p>Characters: <span id="characters">0</span></p>
+<p>Sentences: <span id="sentences">0</span></p>
+</div>
+
+<button onclick="copyText()">Copy Text</button>
+</div>
+
+<!-- Features Section -->
+<div class="container" id="features">
+<h2>Features</h2>
+<ul>
+<li>Counts words, characters, and sentences instantly</li>
+<li>Copy text with one click</li>
+<li>Mobile friendly & responsive</li>
+<li>Free to use</li>
+<li>Easy for bloggers, writers, and students</li>
+</ul>
+</div>
+
+<!-- Gallery Section -->
+<div class="container" id="gallery">
+<h2>Gallery</h2>
+<div class="gallery">
+<img src="https://via.placeholder.com/400x200?text=Image+1" alt="Sample Image 1">
+<img src="https://via.placeholder.com/400x200?text=Image+2" alt="Sample Image 2">
+<img src="https://via.placeholder.com/400x200?text=Image+3" alt="Sample Image 3">
+<img src="https://via.placeholder.com/400x200?text=Image+4" alt="Sample Image 4">
+</div>
+</div>
+
+<!-- About Section -->
+<div class="container" id="about">
+<h2>About Word Counter</h2>
+<p>This Word Counter tool is a free online utility designed to help writers, bloggers, and students quickly count words, characters, and sentences in any text. It is mobile-friendly, fast, and easy to use. Perfect for SEO content writing and academic work.</p>
+</div>
+
+<!-- Footer -->
+<footer>
+<p>&copy; 2026 Word Counter Tool. All Rights Reserved.</p>
+<p>Follow us on social media:  
+<a href="#" style="color:#00aced;">Twitter</a> | 
+<a href="#" style="color:#0077b5;">LinkedIn</a> | 
+<a href="#" style="color:#dd4b39;">Google+</a>
+</p>
+</footer>
+
+<!-- Scripts -->
+<script>
+function countText(){
+    let text = document.getElementById("text").value;
+    let words = text.trim().split(/\s+/).filter(word => word.length > 0);
+    let sentences = text.split(/[.!?]+/).filter(sentence => sentence.trim().length > 0);
+    document.getElementById("words").innerText = words.length;
+    document.getElementById("characters").innerText = text.length;
+    document.getElementById("sentences").innerText = sentences.length;
+}
+
+function copyText(){
+    let text = document.getElementById("text");
+    text.select();
+    text.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    alert("Text copied to clipboard!");
+}
+</script>
+
+</body>
+</html>
